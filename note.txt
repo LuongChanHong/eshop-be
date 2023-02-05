@@ -1,6 +1,6 @@
 Update app:
-- Tạo server express
-"init express server"
+- Tạo các schema cần thiết
+"add necessary schema"
 
 Set up server app: 
 - Cài nodemon: npm i express --save-dev
