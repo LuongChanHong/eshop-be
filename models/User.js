@@ -6,11 +6,10 @@ const userSchema = new Schema({
   email: {
     type: String,
     required: true,
-    unique: true,
-    validate: [validator.isEmail, "Invalid email address"],
   },
   phone: { type: String, require: true },
-  address: { type: String, require: true },
+  address: { type: String, require: false },
+  password: { type: String, require: true },
 });
 
 module.exports = mongoose.model("User", userSchema);
