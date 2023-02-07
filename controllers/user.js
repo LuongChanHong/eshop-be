@@ -27,13 +27,36 @@ exports.signup = async (req, res, next) => {
   }
 };
 
-exports.getALLUser = async (req, res, next) => {
+const comparePassword = async (password, hashPassword) => {
+  return await bcrypt.compare(password, hashPassword);
+};
+
+exports.login = async (req, res, next) => {
   try {
-    const userList = await User.find();
-    if (userList.length > 0) {
-      res.status(200).send(userList);
+    const reqData = req.body;
+    // console.log(reqData);
+    const valid = validationResult(req);
+    // console.log("valid:", valid);
+    if (valid.errors.length <= 0) {
+      const foundUser = await User.findOne({ email: reqData.email }).select(
+        "email password"
+      );
+      if (foundUser) {
+        // console.log("foundUser:", foundUser);
+        const isEqual = await comparePassword(
+          reqData.password,
+          foundUser.password
+        );
+        // console.log("isEqual:", isEqual);
+        if (isEqual) {
+          req.session.userId = foundUser._id;
+          res.send(req.session);
+        } else {
+          res.json({ msg: "Password wrong" });
+        }
+      }
     } else {
-      res.status(404).json({ msg: "No user found" });
+      res.send({ msg: "Email wrong" });
     }
   } catch (error) {
     return next(new Error(error));

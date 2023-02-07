@@ -32,6 +32,22 @@ router.post(
   userController.signup
 );
 
-router.get("/", userController.getALLUser);
+router.post(
+  "/login",
+  [
+    check("email")
+      .isEmail()
+      .withMessage("Email invaliad")
+      .custom(async (value) => {
+        // custom async valida with custom err mess
+        return await User.findOne({ email: value }).then((user) => {
+          if (!user) {
+            return Promise.reject("This email don't exist, try another one");
+          }
+        });
+      }),
+  ],
+  userController.login
+);
 
 module.exports = router;
