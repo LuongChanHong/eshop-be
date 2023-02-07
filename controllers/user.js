@@ -26,3 +26,16 @@ exports.signup = async (req, res, next) => {
     return next(new Error(error));
   }
 };
+
+exports.getALLUser = async (req, res, next) => {
+  try {
+    const userList = await User.find();
+    if (userList.length > 0) {
+      res.status(200).send(userList);
+    } else {
+      res.status(404).json({ msg: "No user found" });
+    }
+  } catch (error) {
+    return next(new Error(error));
+  }
+};

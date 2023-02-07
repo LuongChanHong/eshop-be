@@ -32,5 +32,6 @@ router.post(
   userController.signup
 );
 
-// module.exports = router;
-exports.route = router;
+router.get("/", userController.getALLUser);
+
+module.exports = router;

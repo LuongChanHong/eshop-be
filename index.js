@@ -1,7 +1,8 @@
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-
+const session = require("express-session");
+const mongoDBStore = require("connect-mongodb-session")(session);
 const mongoose = require("mongoose");
 
 const productRoute = require("./routes/product");
@@ -12,12 +13,28 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const MONGODB_URI = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0.e6b0l5j.mongodb.net/${process.env.MONGO_DATABASE}?retryWrites=true&w=majority`;
 
+const sessionStore = new mongoDBStore({
+  uri: MONGODB_URI,
+  collection: "sessions",
+  expires: true,
+});
+
 app.use(
   cors({
     origin: "http://localhost:3000",
     credentials: true,
   })
 );
+
+app.use(
+  session({
+    secret: "secret cookie",
+    resave: false,
+    saveUninitialized: false,
+    store: sessionStore,
+  })
+);
+
 app.use("/", (req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
@@ -32,7 +49,7 @@ app.use("/", (req, res, next) => {
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/products", productRoute);
-app.use("/users", userRoute.route);
+app.use("/users", userRoute);
 
 app.use((error, req, res, next) => {
   console.log("=====================");
