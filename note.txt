@@ -1,6 +1,6 @@
 Update app:
-- thêm chức năng đăng nhập
-"add login feature"
+- thêm chức năng đăng xuất
+"add logout feature"
 
 Set up server app: 
 - Cài nodemon: npm i express --save-dev
