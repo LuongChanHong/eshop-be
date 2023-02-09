@@ -49,8 +49,8 @@ app.use("/", (req, res, next) => {
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use("/products", productRoute);
-app.use("/users", userRoute);
+app.use("/product", productRoute);
+app.use("/user", userRoute);
 
 app.use((error, req, res, next) => {
   console.log("=====================");

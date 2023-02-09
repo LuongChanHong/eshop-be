@@ -33,7 +33,7 @@ const comparePassword = async (password, hashPassword) => {
 
 exports.login = async (req, res, next) => {
   try {
-    const reqData = req.body;
+    const reqData = req.body || req.query;
     // console.log(reqData);
     const valid = validationResult(req);
     // console.log("valid:", valid);

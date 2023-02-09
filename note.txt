@@ -1,6 +1,6 @@
 Update app:
-- hiện dữ liệu lên trang Home
-"render data Home page"
+- thêm chức năng đăng nhập
+"add login feature"
 
 Set up server app: 
 - Cài nodemon: npm i express --save-dev
