@@ -1,6 +1,6 @@
 Update app:
-- thêm chức năng đăng xuất
-"add logout feature"
+- hiện được dữ liệu trang chi tiết sản phẩm
+"render product detail page data"
 
 Set up server app: 
 - Cài nodemon: npm i express --save-dev
