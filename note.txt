@@ -1,6 +1,6 @@
 Update app:
-- hiện được dữ liệu trang chi tiết sản phẩm
-"render product detail page data"
+- thêm được sản phẩm vào redux store
+"added product to redux store"
 
 Set up server app: 
 - Cài nodemon: npm i express --save-dev
