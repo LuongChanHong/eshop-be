@@ -1,6 +1,6 @@
 Update app:
-- thêm được sản phẩm vào redux store
-"added product to redux store"
+- hiển thị thông tin giỏ hàng lên trang cart
+"render cart items on cart page"
 
 Set up server app: 
 - Cài nodemon: npm i express --save-dev
