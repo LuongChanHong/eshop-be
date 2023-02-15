@@ -62,3 +62,19 @@ exports.login = async (req, res, next) => {
     return next(new Error(error));
   }
 };
+
+exports.getUserInfo = async (req, res, next) => {
+  try {
+    const reqData = req.query;
+    // console.log("reqData.id:", reqData.id);
+    const foundUser = await User.findById(reqData.id, { password: 0 });
+    // console.log("foundUser:", foundUser);
+    if (foundUser) {
+      res.json(foundUser);
+    } else {
+      res.json({ msg: "User not found" });
+    }
+  } catch (error) {
+    return next(new Error(error));
+  }
+};

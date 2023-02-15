@@ -1,6 +1,6 @@
 Update app:
-- hiển thị thông tin giỏ hàng lên trang cart
-"render cart items on cart page"
+- thêm tính năng đặt hàng
+"add order feature"
 
 Set up server app: 
 - Cài nodemon: npm i express --save-dev

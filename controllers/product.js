@@ -1,4 +1,3 @@
-const { Mongoose, default: mongoose } = require("mongoose");
 const Product = require("../models/Product");
 
 exports.getAllProduct = async (req, res, next) => {
