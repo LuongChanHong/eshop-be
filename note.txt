@@ -1,6 +1,6 @@
 Update app:
-- thêm tính năng đặt hàng
-"add order feature"
+- sửa lỗi tính năng đăng ký
+"fix signup feature bug"
 
 Set up server app: 
 - Cài nodemon: npm i express --save-dev

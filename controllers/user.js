@@ -1,34 +1,42 @@
+const mongoose = require("mongoose");
 const User = require("../models/User");
+const Cart = require("../models/Cart");
 const bcrypt = require("bcryptjs");
 const { validationResult } = require("express-validator");
 
+const comparePassword = async (password, hashPassword) => {
+  return await bcrypt.compare(password, hashPassword);
+};
+
 exports.signup = async (req, res, next) => {
   try {
-    const reqData = req.query;
+    const reqData = req.body;
     const valid = validationResult(req);
     const hashPass = await bcrypt.hash(reqData.password, 12);
     // console.log("reqData:", reqData);
     if (valid.errors.length > 0) {
-      // console.log("valid:", valid);
+      console.log("valid:", valid);
       res.send(valid);
     } else {
-      console.log("hashPass:", hashPass);
+      // console.log("hashPass:", hashPass);
       const newUser = new User({
+        _id: new mongoose.Types.ObjectId(),
         email: reqData.email,
         fullname: reqData.fullname,
         phone: reqData.phone,
         password: hashPass,
       });
+      const newCart = new Cart({
+        userId: newUser._id,
+        items: [],
+        total: 0,
+      });
       newUser.save();
+      newCart.save();
     }
-    res.end();
   } catch (error) {
     return next(new Error(error));
   }
-};
-
-const comparePassword = async (password, hashPassword) => {
-  return await bcrypt.compare(password, hashPassword);
 };
 
 exports.login = async (req, res, next) => {
