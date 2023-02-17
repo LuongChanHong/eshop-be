@@ -8,6 +8,7 @@ const mongoose = require("mongoose");
 const productRoute = require("./routes/product");
 const userRoute = require("./routes/user");
 const orderRoute = require("./routes/order");
+const cartRoute = require("./routes/cart");
 
 const app = express();
 
@@ -53,6 +54,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/product", productRoute);
 app.use("/user", userRoute);
 app.use("/order", orderRoute);
+app.use("/cart", cartRoute);
 
 app.use((error, req, res, next) => {
   console.log("=====================");
