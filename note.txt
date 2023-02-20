@@ -1,6 +1,6 @@
 Update app:
-- sửa lỗi tính năng đăng ký
-"fix signup feature bug"
+- chuyển logic chỉnh sửa số lượng, xóa sản phẩm giỏ hàng lên server
+"move the edit quantity, delete cart products logic to server"
 
 Set up server app: 
 - Cài nodemon: npm i express --save-dev
