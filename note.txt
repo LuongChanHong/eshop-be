@@ -1,6 +1,6 @@
 Update app:
-- thêm tính năng hiện tổng giá trị giỏ hàng component cart
-"add render cart total price feature in component cart"
+- thêm tính năng hiện chi tiết giỏ hàng component checkout
+"add render cart detail feature in component checkout"
 
 Set up server app: 
 - Cài nodemon: npm i express --save-dev
