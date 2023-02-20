@@ -56,8 +56,22 @@ exports.addToCart = async (req, res, next) => {
     const userCart = await Cart.findOne({ userId: reqData.userId });
     // console.log("userCart.items:", userCart.items);
     if (userCart) {
+      // tìm item user muốn thêm vào giỏ
+      // nếu item đã tồn tại, cộng thêm lượng item user muốn thêm
+      // nếu không tồn tại thì thêm item mới vào giỏ
       const updateItems = [...userCart.items];
-      updateItems.push(reqData.selectedItem);
+      const userAddItem = reqData.selectedItem;
+
+      const index = updateItems.findIndex(
+        (item) => item.productId.toString() === userAddItem.productId
+      );
+
+      if (index >= 0) {
+        updateItems[index].quantity =
+          updateItems[index].quantity + userAddItem.quantity;
+      } else {
+        updateItems.push(userAddItem);
+      }
       // console.log("updateItems:", updateItems);
 
       await Cart.findByIdAndUpdate(userCart._id, {

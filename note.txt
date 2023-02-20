@@ -1,6 +1,6 @@
 Update app:
-- chuyển logic chỉnh sửa số lượng, xóa sản phẩm giỏ hàng lên server
-"move the edit quantity, delete cart products logic to server"
+- thêm tính năng hiện tổng giá trị giỏ hàng component cart
+"add render cart total price feature in component cart"
 
 Set up server app: 
 - Cài nodemon: npm i express --save-dev
