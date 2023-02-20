@@ -25,6 +25,7 @@ exports.signup = async (req, res, next) => {
         fullname: reqData.fullname,
         phone: reqData.phone,
         password: hashPass,
+        address: "",
       });
       const newCart = new Cart({
         userId: newUser._id,

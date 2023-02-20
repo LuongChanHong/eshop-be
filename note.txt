@@ -1,6 +1,6 @@
 Update app:
-- thêm tính năng hiện chi tiết giỏ hàng component checkout
-"add render cart detail feature in component checkout"
+- hoàn thành nâng cấp chức năng đặt hàng (component Checkout)
+"update order feature done (component Checkout)"
 
 Set up server app: 
 - Cài nodemon: npm i express --save-dev
