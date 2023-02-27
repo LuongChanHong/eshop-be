@@ -1,6 +1,6 @@
 Update app:
-- đã tìm ra cách gửi mail bằng nodemailer, mailgen đến gmail
-"founded how to send mail to gmail by nodemailer, mailgen"
+- thêm tính năng gửi mail bằng nodemailer, mailgen đến gmail
+"add send gmail feature by nodemailer, mailgen"
 
 Set up server app: 
 - Cài nodemon: npm i express --save-dev
