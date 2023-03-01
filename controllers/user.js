@@ -42,7 +42,7 @@ exports.signup = async (req, res, next) => {
 
 exports.login = async (req, res, next) => {
   try {
-    const reqData = req.body || req.query;
+    const reqData = req.body;
     // console.log(reqData);
     const valid = validationResult(req);
     // console.log("valid:", valid);

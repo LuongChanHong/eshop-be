@@ -1,6 +1,6 @@
 Update app:
-- phân quyền (thêm thuộc tính role) cho user
-"add role attributes (decentralization) to user model"
+- thêm chức năng đăng nhập trang admin
+"add login feature admin page"
 
 Set up server app: 
 - Cài nodemon: npm i express --save-dev
