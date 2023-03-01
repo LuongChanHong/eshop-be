@@ -1,6 +1,6 @@
 Update app:
-- thêm tính năng gửi mail bằng nodemailer, mailgen đến gmail
-"add send gmail feature by nodemailer, mailgen"
+- phân quyền (thêm thuộc tính role) cho user
+"add role attributes (decentralization) to user model"
 
 Set up server app: 
 - Cài nodemon: npm i express --save-dev

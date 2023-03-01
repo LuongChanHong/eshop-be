@@ -48,7 +48,7 @@ exports.login = async (req, res, next) => {
     // console.log("valid:", valid);
     if (valid.errors.length <= 0) {
       const foundUser = await User.findOne({ email: reqData.email }).select(
-        "email password"
+        "email password role"
       );
       if (foundUser) {
         // console.log("foundUser:", foundUser);
@@ -59,6 +59,7 @@ exports.login = async (req, res, next) => {
         // console.log("isEqual:", isEqual);
         if (isEqual) {
           req.session.userId = foundUser._id;
+          req.session.role = foundUser.role;
           res.send(req.session);
         } else {
           res.json({ msg: "Password wrong" });
