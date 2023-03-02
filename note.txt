@@ -1,6 +1,6 @@
 Update app:
-- thêm chức năng đăng nhập trang admin
-"add login feature admin page"
+- kiểm tra role trước khi đăng nhập trang admin
+"check role before accept access admin page"
 
 Set up server app: 
 - Cài nodemon: npm i express --save-dev
