@@ -1,6 +1,6 @@
 Update app:
-- kiểm tra role trước khi đăng nhập trang admin
-"check role before accept access admin page"
+- chia trang danh sách sản phẩm trang admin
+"add product list pagination admin page"
 
 Set up server app: 
 - Cài nodemon: npm i express --save-dev
