@@ -1,6 +1,6 @@
 Update app:
-- chia trang danh sách sản phẩm trang admin
-"add product list pagination admin page"
+- thêm tính năng tìm sản phẩm theo tên sản phẩm trang admin
+"add search product by name admin page"
 
 Set up server app: 
 - Cài nodemon: npm i express --save-dev
