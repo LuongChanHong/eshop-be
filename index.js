@@ -46,6 +46,17 @@ app.use("/", (req, res, next) => {
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.get("/", (req, res, next) => {
+  try {
+    res.json({
+      status: 200,
+      msg: "GET DATA SUCCESS",
+    });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).send("SERVER ERROR");
+  }
+});
 app.use("/product", productRoute);
 app.use("/user", userRoute);
 app.use("/order", orderRoute);
