@@ -1,6 +1,6 @@
 Update app:
-- nâng cấp xác thực tài khoản bằng session/cookie
-"upgraded account authentication with session/cookie"
+- sửa lỗi validation đăng kí người dùng mới
+"fixed bug user signup validation"
 
 Set up server app: 
 - Cài nodemon: npm i express --save-dev
