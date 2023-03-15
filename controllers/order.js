@@ -3,6 +3,8 @@ const mailgen = require("mailgen");
 
 const Order = require("../models/Order");
 const User = require("../models/User");
+const Cart = require("../models/Cart");
+const { default: mongoose } = require("mongoose");
 
 const handleMailContent = (data, sendTime) => {
   const _sendTime =
@@ -78,6 +80,9 @@ exports.createOrder = async (req, res, next) => {
     });
     await sendMail(req.body, newOrder.orderTime);
     newOrder.save();
+
+    await Cart.findOneAndUpdate({ userId: reqData.user.userId }, { items: [] });
+    res.end();
   } catch (error) {
     return next(new Error(error));
   }

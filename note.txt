@@ -1,6 +1,6 @@
 Update app:
-- sửa lỗi validation đăng kí người dùng mới
-"fixed bug user signup validation"
+- sửa lỗi không xóa thông tin giỏ hàng sau khi đặt hàng
+"fixed not clearing cart items after placing an order"
 
 Set up server app: 
 - Cài nodemon: npm i express --save-dev
