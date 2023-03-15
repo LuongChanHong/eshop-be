@@ -18,7 +18,7 @@ const MONGODB_URI = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO
 
 app.use(
   cors({
-    origin: ["http://localhost:3000"],
+    origin: true,
     credentials: true,
   })
 );
