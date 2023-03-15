@@ -1,6 +1,6 @@
 Update app:
-- thêm tính năng tìm sản phẩm theo tên sản phẩm trang admin
-"add search product by name admin page"
+- nâng cấp xác thực tài khoản bằng session/cookie
+"upgraded account authentication with session/cookie"
 
 Set up server app: 
 - Cài nodemon: npm i express --save-dev

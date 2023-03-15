@@ -3,6 +3,7 @@ const User = require("../models/User");
 const Cart = require("../models/Cart");
 const bcrypt = require("bcryptjs");
 const { validationResult } = require("express-validator");
+const { v4: uuidv4 } = require("uuid");
 
 const comparePassword = async (password, hashPassword) => {
   return await bcrypt.compare(password, hashPassword);
@@ -34,6 +35,7 @@ exports.signup = async (req, res, next) => {
       });
       newUser.save();
       newCart.save();
+      res.end();
     }
   } catch (error) {
     return next(new Error(error));
@@ -43,7 +45,7 @@ exports.signup = async (req, res, next) => {
 exports.login = async (req, res, next) => {
   try {
     const reqData = req.body;
-    // console.log(reqData);
+    // console.log("reqData:", reqData);
     const valid = validationResult(req);
     // console.log("valid:", valid);
     if (valid.errors.length <= 0) {
@@ -51,16 +53,24 @@ exports.login = async (req, res, next) => {
         "email password role"
       );
       if (foundUser) {
-        // console.log("foundUser:", foundUser);
         const isEqual = await comparePassword(
           reqData.password,
           foundUser.password
         );
-        // console.log("isEqual:", isEqual);
         if (isEqual) {
+          // Lưu lại token vào DB
+          // res.send token đã lưu
+          // sau khi FE nhận được, lưu vào cookie
+          const token = uuidv4();
+          req.session.token = token;
           req.session.userId = foundUser._id;
           req.session.role = foundUser.role;
-          res.send(req.session);
+
+          res.send({
+            userId: foundUser._id,
+            role: foundUser.role,
+            token: token,
+          });
         } else {
           res.json({ msg: "Password wrong" });
         }
@@ -73,10 +83,22 @@ exports.login = async (req, res, next) => {
   }
 };
 
+exports.logout = (req, res, next) => {
+  try {
+    if (req.session) {
+      req.session.destroy();
+    }
+    res.end();
+  } catch (error) {
+    return next(new Error(error));
+  }
+};
+
 exports.getUserInfo = async (req, res, next) => {
   try {
     const reqData = req.query;
-    // console.log("reqData.id:", reqData.id);
+    // console.log("reqData:", reqData);
+
     const foundUser = await User.findById(reqData.id, { password: 0 });
     // console.log("foundUser:", foundUser);
     if (foundUser) {
