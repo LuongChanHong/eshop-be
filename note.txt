@@ -1,6 +1,6 @@
 Update app:
-- sửa lỗi không xóa thông tin giỏ hàng sau khi đặt hàng
-"fixed not clearing cart items after placing an order"
+- thêm comment vào 1 số controller để test
+"add comments to some controllers for testing"
 
 Set up server app: 
 - Cài nodemon: npm i express --save-dev
