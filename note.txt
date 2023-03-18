@@ -1,6 +1,6 @@
 Update app:
-- thêm comment vào 1 số controller để test
-"add comments to some controllers for testing"
+- testing deploy
+"testing deploy"
 
 Set up server app: 
 - Cài nodemon: npm i express --save-dev
