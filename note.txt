@@ -1,6 +1,6 @@
 Update app:
-- testing deploy
-"testing deploy"
+- sửa thông báo lỗi
+"fix error message"
 
 Set up server app: 
 - Cài nodemon: npm i express --save-dev
