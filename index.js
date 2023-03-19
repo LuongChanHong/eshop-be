@@ -82,7 +82,7 @@ app.use((error, req, res, next) => {
   console.log("=====================");
   console.log("ERROR HANDLER::", error);
   res.statusMessage = "Something go wrong";
-  res.status(500).send(error);
+  res.status(500).json(error);
 });
 
 mongoose
