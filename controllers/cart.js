@@ -44,7 +44,7 @@ exports.getByUserId = async (req, res, next) => {
     }
   } catch (error) {
     console.log("error:", error);
-    return next(new Error(error));
+    // return next(new Error(error));
   }
 };
 
