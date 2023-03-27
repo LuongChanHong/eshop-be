@@ -1,6 +1,6 @@
 Update app:
-- log lỗi trong middleWare auth
-"log middleWare auth error"
+- thay đổi cors origin
+"change cors origin"
 
 Set up server app: 
 - Cài nodemon: npm i express --save-dev

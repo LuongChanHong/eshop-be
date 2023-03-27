@@ -16,12 +16,24 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const MONGODB_URI = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0.e6b0l5j.mongodb.net/${process.env.MONGO_DATABASE}?retryWrites=true&w=majority`;
 
-app.use(
-  cors({
-    origin: true,
-    credentials: true,
-  })
-);
+const allowedOrigins = [
+  "https://eshop-user.netlify.app",
+  "https://hong-eshop-admin.netlify.app",
+  "http://localhost:3000",
+  "http://localhost:3001",
+];
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 app.use(cookieParser());
 
 const sessionStore = new mongoDBStore({
