@@ -1,6 +1,6 @@
 Update app:
-- sửa thông báo lỗi
-"fix error message"
+- gửi thông báo lỗi về tag network browser
+"send error message to network browser tab"
 
 Set up server app: 
 - Cài nodemon: npm i express --save-dev

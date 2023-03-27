@@ -2,6 +2,10 @@ const Cart = require("../models/Cart");
 const Procduct = require("../models/Product");
 
 exports.getByUserId = async (req, res, next) => {
+  console.log("=================");
+  console.log("GET CART BY USER ID");
+  console.log("=================");
+
   try {
     const reqData = req.query;
     // console.log("reqData:", reqData);
@@ -44,6 +48,7 @@ exports.getByUserId = async (req, res, next) => {
     }
   } catch (error) {
     console.log("error:", error);
+    res.send({ errorStyle: error.name, errorMessage: error.message });
     // return next(new Error(error));
   }
 };
