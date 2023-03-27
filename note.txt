@@ -1,6 +1,6 @@
 Update app:
-- gửi thông báo lỗi về tag network browser
-"send error message to network browser tab"
+- log lỗi trong middleWare auth
+"log middleWare auth error"
 
 Set up server app: 
 - Cài nodemon: npm i express --save-dev
