@@ -16,6 +16,30 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const MONGODB_URI = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0.e6b0l5j.mongodb.net/${process.env.MONGO_DATABASE}?retryWrites=true&w=majority`;
 
+app.use(cookieParser());
+
+const sessionStore = new mongoDBStore({
+  uri: MONGODB_URI,
+  collection: "sessions",
+  expires: true,
+});
+
+app.use(
+  session({
+    secret: "secret cookie",
+    resave: true,
+    saveUninitialized: false,
+    store: sessionStore,
+    cookie: {
+      maxAge: 1000 * 60 * 60,
+      sameSite: "none",
+      secure: false,
+    },
+  })
+);
+
+app.enable("trust proxy");
+
 const allowedOrigins = [
   "https://eshop-user.netlify.app",
   "https://hong-eshop-admin.netlify.app",
@@ -34,29 +58,6 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-app.use(cookieParser());
-
-const sessionStore = new mongoDBStore({
-  uri: MONGODB_URI,
-  collection: "sessions",
-  expires: true,
-});
-
-app.use(
-  session({
-    secret: "secret cookie",
-    resave: true,
-    saveUninitialized: false,
-    store: sessionStore,
-    cookie: {
-      maxAge: 1000 * 60 * 60,
-      sameSite: "none",
-      secure: true,
-    },
-  })
-);
-
-app.enable("trust proxy");
 
 app.use("/", (req, res, next) => {
   // res.setHeader("Access-Control-Allow-Origin", "*");
