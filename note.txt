@@ -1,6 +1,6 @@
 Update app:
-- thay đổi cors origin
-"change cors origin"
+- thêm trust proxy
+"enable trust proxy"
 
 Set up server app: 
 - Cài nodemon: npm i express --save-dev
