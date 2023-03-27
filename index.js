@@ -43,6 +43,7 @@ app.enable("trust proxy");
 const allowedOrigins = [
   "https://eshop-user.netlify.app",
   "https://hong-eshop-admin.netlify.app",
+  "https://eshop-be.vercel.app",
   "http://localhost:3000",
   "http://localhost:3001",
 ];
