@@ -40,25 +40,18 @@ app.use(
 
 app.enable("trust proxy");
 
-const allowedOrigins = [
-  "https://eshop-user.netlify.app",
-  "https://hong-eshop-admin.netlify.app",
-  "https://eshop-be.vercel.app",
-  "http://localhost:3000",
-  "http://localhost:3001",
-];
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (allowedOrigins.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  credentials: true,
-};
-
-app.use(cors(corsOptions));
+app.use(
+  cors({
+    origin: [
+      "https://eshop-user.netlify.app",
+      "https://hong-eshop-admin.netlify.app",
+      "https://eshop-be.vercel.app",
+      "http://localhost:3000",
+      "http://localhost:3001",
+    ],
+    credentials: true,
+  })
+);
 
 app.use("/", (req, res, next) => {
   // res.setHeader("Access-Control-Allow-Origin", "*");
