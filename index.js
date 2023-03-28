@@ -27,12 +27,12 @@ const sessionStore = new mongoDBStore({
 app.use(
   session({
     secret: "secret cookie",
-    resave: true,
+    resave: false,
     saveUninitialized: false,
     store: sessionStore,
     cookie: {
       maxAge: 1000 * 60 * 60,
-      sameSite: "none",
+      sameSite: "lax",
       secure: false,
     },
   })
@@ -49,25 +49,26 @@ app.use(
       "http://localhost:3000",
       "http://localhost:3001",
     ],
+    methods: ["GET,POST,PUT,PATH,DELETE,OPTIONS"],
     credentials: true,
   })
 );
 
-app.use("/", (req, res, next) => {
-  // res.setHeader("Access-Control-Allow-Origin", "*");
-  // res.setHeader("Access-Control-Allow-Credentials", "include");
-  // res.setHeader(
-  //   "Access-Control-Allow-Headers",
-  //   "Origin, X-Requested-With, Content-Type, Accept"
-  // );
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-  res.setHeader("Access-Control-Allow-Headers", "Authorization");
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET,POST,PUT,PATH,DELETE,OPTIONS"
-  );
-  next();
-});
+// app.use("/", (req, res, next) => {
+//   // res.setHeader("Access-Control-Allow-Origin", "*");
+//   // res.setHeader("Access-Control-Allow-Credentials", "include");
+//   // res.setHeader(
+//   //   "Access-Control-Allow-Headers",
+//   //   "Origin, X-Requested-With, Content-Type, Accept"
+//   // );
+//   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+//   res.setHeader("Access-Control-Allow-Headers", "Authorization");
+//   res.setHeader(
+//     "Access-Control-Allow-Methods",
+//     "GET,POST,PUT,PATH,DELETE,OPTIONS"
+//   );
+//   next();
+// });
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
