@@ -43,11 +43,10 @@ app.enable("trust proxy");
 app.use(
   cors({
     origin: [
-      "https://eshop-user.netlify.app",
-      "https://hong-eshop-admin.netlify.app",
-      "https://eshop-be.vercel.app",
-      "http://localhost:3000",
-      "http://localhost:3001",
+      "https://eshop-user.netlify.app/*",
+      "https://hong-eshop-admin.netlify.app/*",
+      "http://localhost:3000/*",
+      "http://localhost:3001/*",
     ],
     methods: ["GET,POST,PUT,PATH,DELETE,OPTIONS"],
     credentials: true,
