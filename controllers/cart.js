@@ -2,9 +2,7 @@ const Cart = require("../models/Cart");
 const Procduct = require("../models/Product");
 
 exports.getByUserId = async (req, res, next) => {
-  console.log("=================");
-  console.log("GET CART BY USER ID");
-  console.log("=================");
+  console.log("===== GETTING CART BY USER ID");
 
   try {
     const reqData = req.query;

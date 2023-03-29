@@ -10,6 +10,8 @@ const comparePassword = async (password, hashPassword) => {
 };
 
 exports.signup = async (req, res, next) => {
+  console.log("===== SIGN UP");
+
   try {
     const reqData = req.body;
     const valid = validationResult(req);
@@ -43,6 +45,8 @@ exports.signup = async (req, res, next) => {
 };
 
 exports.login = async (req, res, next) => {
+  console.log("===== LOGIN");
+
   try {
     const reqData = req.body;
     // console.log("reqData:", reqData);
@@ -84,6 +88,8 @@ exports.login = async (req, res, next) => {
 };
 
 exports.logout = (req, res, next) => {
+  console.log("===== LOGOUT");
+
   try {
     if (req.session) {
       req.session.destroy();
@@ -95,6 +101,8 @@ exports.logout = (req, res, next) => {
 };
 
 exports.getUserInfo = async (req, res, next) => {
+  console.log("===== GETTING USER DETAIL");
+
   try {
     const reqData = req.query;
     // console.log("reqData:", reqData);

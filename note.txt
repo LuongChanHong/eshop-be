@@ -1,6 +1,6 @@
 Update app:
-- commit deploy glitch
-"commit deploy glitch"
+- commit deploy render.com
+"commit deploy render.com"
 
 Set up server app: 
 - Cài nodemon: npm i express --save-dev

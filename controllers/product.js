@@ -1,9 +1,7 @@
 const Product = require("../models/Product");
 
 exports.getAllProduct = async (req, res, next) => {
-  console.log("=================");
-  console.log("GETTING PRODUCT LIST");
-  console.log("=================");
+  console.log("===== GETTING PRODUCT LIST");
   try {
     const products = await Product.find();
     res.status(200).send(products);
@@ -13,9 +11,7 @@ exports.getAllProduct = async (req, res, next) => {
 };
 
 exports.getProductDetail = async (req, res, next) => {
-  console.log("=================");
-  console.log("GETTING PRODUCT DETAIL");
-  console.log("=================");
+  console.log("===== GETTING PRODUCT DETAIL");
   try {
     const id = req.query.id;
     // console.log("id:", id);

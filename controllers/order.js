@@ -69,6 +69,7 @@ const sendMail = async (data, sendTime) => {
 };
 
 exports.createOrder = async (req, res, next) => {
+  console.log("===== CREATTING ORDER");
   try {
     const reqData = req.body;
     // console.log("reqData.user:", reqData.user);
@@ -89,6 +90,8 @@ exports.createOrder = async (req, res, next) => {
 };
 
 exports.getAllOrder = async (req, res, next) => {
+  console.log("===== GETTING ALL ORDER");
+
   try {
     const reqData = req.query;
     // console.log("reqData:", reqData);
@@ -102,6 +105,8 @@ exports.getAllOrder = async (req, res, next) => {
 };
 
 exports.getOrderById = async (req, res, next) => {
+  console.log("===== GETTING ORDER BY USER ID");
+
   try {
     const reqData = req.query;
     // console.log("reqData:", reqData);
