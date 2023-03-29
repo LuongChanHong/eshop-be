@@ -69,6 +69,7 @@ exports.login = async (req, res, next) => {
           req.session.token = token;
           req.session.userId = foundUser._id;
           req.session.role = foundUser.role;
+          console.log("login req.session:", req.session);
 
           // res.send({
           //   userId: foundUser._id,
