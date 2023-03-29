@@ -43,8 +43,8 @@ app.enable("trust proxy");
 app.use(
   cors({
     origin: [
-      "https://eshop-user.netlify.app/*",
-      "https://hong-eshop-admin.netlify.app/*",
+      "https://eshop-user.netlify.app",
+      "https://hong-eshop-admin.netlify.app",
       "http://localhost:3000",
       "http://localhost:3001",
     ],
