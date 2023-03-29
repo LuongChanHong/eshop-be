@@ -1,6 +1,6 @@
 Update app:
-- change user login response
-"change user login response"
+- log sessionID
+"log sessionID"
 
 Set up server app: 
 - Cài nodemon: npm i express --save-dev
