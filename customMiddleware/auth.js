@@ -6,6 +6,7 @@ exports.requiresLogin = (req, res, next) => {
 
   const reqCookie = req.headers.cookie;
   console.log("req.headers:", req.headers);
+  console.log("req.session:", req.session);
   const userId = reqCookie.split(";")[1].split("=")[1];
   const token = reqCookie.split(";")[0].split("=")[1];
 
