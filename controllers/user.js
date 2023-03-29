@@ -70,6 +70,7 @@ exports.login = async (req, res, next) => {
           req.session.userId = foundUser._id;
           req.session.role = foundUser.role;
           console.log("login req.session:", req.session);
+          console.log("login session id:", req.sessionID);
 
           res.send({
             userId: foundUser._id,
