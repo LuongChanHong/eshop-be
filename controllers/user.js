@@ -70,11 +70,12 @@ exports.login = async (req, res, next) => {
           req.session.userId = foundUser._id;
           req.session.role = foundUser.role;
 
-          res.send({
-            userId: foundUser._id,
-            role: foundUser.role,
-            token: token,
-          });
+          // res.send({
+          //   userId: foundUser._id,
+          //   role: foundUser.role,
+          //   token: token,
+          // });
+          res.status(200).end();
         } else {
           res.json({ msg: "Password wrong" });
         }

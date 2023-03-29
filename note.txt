@@ -1,6 +1,6 @@
 Update app:
-- checking req session
-"checking req session"
+- change user login response
+"change user login response"
 
 Set up server app: 
 - Cài nodemon: npm i express --save-dev
