@@ -1,6 +1,6 @@
 Update app:
-- log sessionID
-"log sessionID"
+- xét cookie trước khi gọi 1 số API
+"check cookies before calling some API"
 
 Set up server app: 
 - Cài nodemon: npm i express --save-dev
